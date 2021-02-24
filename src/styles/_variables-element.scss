@@ -1,0 +1,25 @@
+// reboot element ui system colors.
+$--color-black:           $color-black;
+
+$--color-primary:         $color-theme;
+$--color-danger:          $color-red;
+$--color-success:         $color-green;
+$--color-warning:         $color-yellow;
+$--color-info:            $color-text-secondary;
+$--color-text-primary:    $color-text-primary;
+$--color-text-secondary:  $color-text-secondary;
+
+$--color-primary-light-1: mix($color-white, $--color-primary, 10%); /* 3db058 */
+$--color-primary-light-2: mix($color-white, $--color-primary, 20%); /* 53b96a */
+$--color-primary-light-3: mix($color-white, $--color-primary, 30%); /* 69c17d */
+$--color-primary-light-4: mix($color-white, $--color-primary, 40%); /* 7eca8f */
+$--color-primary-light-5: mix($color-white, $--color-primary, 50%); /* 94d3a2 */
+$--color-primary-light-6: mix($color-white, $--color-primary, 60%); /* a9dcb5 */
+$--color-primary-light-7: mix($color-white, $--color-primary, 70%); /* bfe5c7 */
+$--color-primary-light-8: mix($color-white, $--color-primary, 80%); /* d4edda */
+$--color-primary-light-9: mix($color-white, $--color-primary, 90%); /* eaf6ec */
+
+/* Scrollbar
+--------------------------*/
+$--scrollbar-background-color: rgba($--color-text-secondary, .35);
+$--scrollbar-hover-background-color: rgba($--color-text-secondary, .55);

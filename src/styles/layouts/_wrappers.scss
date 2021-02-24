@@ -1,0 +1,117 @@
+.va-app-wrapper {
+  height:   100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.va-main-wrapper {
+  height:     100%;
+  overflow:   hidden;
+  position:   relative;
+  transition: $transition-margin, $transition-transform;
+  padding: $main-wrapper-padding-top 0 $main-wrapper-padding-bottom 0;
+}
+
+.va-body-wrapper {
+  height: 100%;
+  overflow: hidden;
+  background-color: $body-wrapper-bg-color;
+
+  transition: $transition-background;
+
+  &.no-bg {
+    background-color: transparent;
+  }
+}
+
+.va-body-container {
+  height: 100%;
+  padding: $body-wrapper-padding;
+  box-shadow: inset $shadow-sm-hr;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+
+  .va-body-title {
+    font-size: $font-size-h4;
+    position: relative;
+    border-bottom: $border-default;
+    padding-bottom: $spacer-base;
+    margin-bottom: $spacer-base;
+
+    &:not(.lowercase) {
+      text-transform: capitalize;
+    }
+
+    &:first-child {
+      margin-top: $spacer-sm;
+    }
+
+    small {
+      margin-left: $spacer-base;
+    }
+  }
+}
+
+//
+// In desktop
+@media screen and (min-width: $device-lg) {
+  .va-app-wrapper {
+    &.sidebar-expanded {
+      .va-main-wrapper {
+        margin-left: $sidebar-width-expanded;
+      }
+
+      .va-side-wrapper {
+        width: $sidebar-width-expanded;
+        overflow: hidden;
+      }
+    }
+
+    // sidebar collapsed.
+    &.sidebar-collapse {
+      .va-main-wrapper {
+        margin-left: $sidebar-width-collapse;
+      }
+
+      .va-side-wrapper {
+        width: $sidebar-width-collapse;
+      }
+    }
+  }
+}
+
+//
+// In mobile
+@media screen and (max-width: $device-lg - 1px) {
+  .va-app-wrapper {
+    .va-side-wrapper {
+      width: $sidebar-width-expanded;
+    }
+    .va-main-wrapper {
+      margin: 0;
+    }
+
+    &.sidebar-expanded {
+      .va-side-wrapper {
+        transform: translate3d(0, 0, 0);
+      }
+      .va-main-wrapper {
+        transform: translate3d($sidebar-width-expanded/2, 0, 0);
+      }
+    }
+
+    &.sidebar-collapse {
+      .va-side-wrapper {
+        transform: translate3d(-$sidebar-width-expanded, 0, 0);
+      }
+      .va-main-wrapper {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  .va-tabs-bar {
+    padding: 0 $spacer-base;
+  }
+}

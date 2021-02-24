@@ -1,0 +1,136 @@
+//
+// Colors
+
+@each $key, $value in $color-maps {
+  .text-#{$key} { color: $value !important; }
+  .border-#{$key} { border: solid $border-default-width $value !important; }
+  .bg-#{$key} { background-color: $value !important; }
+}
+
+
+//
+// Paragraph
+
+.paragraph { line-height: 2; }
+.paragraph-indent { text-indent: 2em; }
+
+
+//
+// Text align
+
+.text-left { text-align: left }
+.text-right { text-align: right }
+.text-center { text-align: center }
+
+
+// Text transform
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+
+//
+// float util
+
+.float-l { float: left; }
+.float-r { float: right; }
+.clear-fix:after { content: ''; display: block; clear: both; }
+
+
+//
+// Links
+a {
+  color: $color-link-default;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  outline:none;
+
+  &:hover {
+    color: $color-actives;
+  }
+
+  &.linker {
+    color: $color-link-highlight;
+    font-weight: 500;
+
+    &:hover {
+      color: mix($color-black, $color-link-highlight, 10%);
+    }
+  }
+
+  &.link-theme {
+    color: $color-theme;
+
+    &:hover {
+      color: mix($color-black, $color-theme, 10%);
+    }
+  }
+
+  &.disabled {
+    opacity: .75;
+    cursor: not-allowed;
+  }
+}
+
+
+//
+// SVG images
+.va-svg-image {
+  transition: $transition-color;
+}
+
+
+//
+// Drops
+.file-drop-box {
+  display: block;
+  overflow: hidden;
+  margin: 0 auto;
+  border: dashed $border-default-width $border-color;
+  border-radius: $radius-lg;
+  text-align: center;
+  cursor: pointer;
+  transition: $transition-border;
+  position: relative;
+
+  &:not(.disabled):hover {
+    border-color: $color-theme;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+//
+// dl dt dd
+$dl-horizontal-dt-width:  68px;
+
+dl.dl-horizontal {
+  position: relative;
+
+  dt {
+    width: $dl-horizontal-dt-width;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  dd {
+    margin-left: $dl-horizontal-dt-width + $spacer-base;
+
+    & + dd {
+      margin-top: $spacer-base;
+    }
+  }
+}

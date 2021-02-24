@@ -1,0 +1,121 @@
+$tabs-icon-btn-width:   44px;
+
+.va-tabs-bar {
+  height: $tabs-height;
+  line-height: $tabs-height;
+  background-color: $tabs-bg-color;
+  padding-left: $tabs-icon-btn-width;
+  font-size: 0;
+  position: absolute;
+  top: $head-height;
+  left: 0;
+  right: 0;
+  z-index: $z-index-tabbar;
+  box-shadow: $shadow-sm-vr;
+  @extend .clear-fix;
+
+  .tabs-scroll-pane {
+    height: $tabs-height;
+  }
+
+  .el-breadcrumb {
+    height: $tabs-height;
+    line-height: $tabs-height;
+  }
+
+  .tabs-home, .tabs-more {
+    width: $tabs-icon-btn-width;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+  }
+
+  .tabs-more {
+    right: 0;
+    font-size: $tabs-item-icon-size;
+
+    .va-tabs-item {
+      width: 100%;
+      color: $color-text-primary;
+
+      &:hover {
+        color: $color-theme;
+      }
+    }
+  }
+}
+
+.va-tabs-item {
+  display: inline-block;
+  height: $tabs-height;
+  line-height: $tabs-line-height;
+  padding: 0 $tabs-item-spacer;
+  border-right: solid $color-gray-100 1px;
+  vertical-align: top;
+  font-size: 1rem;
+  text-transform: capitalize;
+  text-align: center;
+  color: $color-text-primary;
+  opacity: .6;
+  position: relative;
+  transition: $transition-color, $transition-background, $transition-opacity;
+
+  &:first-child {
+    border-left: solid $color-gray-100 1px;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    border-top: solid $tabs-item-border-width transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: $transition-border;
+  }
+
+  &.tabs-home {
+    left: 0;
+
+    .link-home {
+      width: $tabs-item-icon-size;
+      height: $tabs-item-icon-size;
+      vertical-align: -3px;
+    }
+  }
+
+  &:hover {
+    color: $color-text-primary;
+    opacity: 1;
+  }
+
+  &.active {
+    background-color: $color-gray-100;
+    opacity: 1;
+    color: $color-theme;
+
+    &:before {
+      border-color: $color-theme;
+    }
+  }
+
+  .tabs-item__close {
+
+    .va-icon {
+      width: $tabs-item-close-size;
+      height: $tabs-item-close-size;
+      border-radius: 50%;
+      padding: $tabs-item-close-padding;
+      vertical-align: -4px;
+    }
+
+    &:hover {
+      color: $color-white;
+
+      .va-icon {
+        background-color: $color-theme;
+      }
+    }
+  }
+}
